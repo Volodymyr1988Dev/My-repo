@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev:client": "ts-node src/app.ts"
+    "start": "node dist/app.js",
+    "dev:client": "ts-node src/app.ts",
+    "build": "tsc",
+    "dev:nodemon": "tsc & nodemon dist/app.js"
   },
   "keywords": [],
   "author": "",
