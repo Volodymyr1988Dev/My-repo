@@ -15,9 +15,18 @@ export async function createPost (data: NewsPostProps): Promise<NewsPost> {
     return await newsPostTable.create(data);
 }
 
-export async function getAllPosts (): Promise<NewsPost[]> {
+export async function getAllPosts (params?:{page?:number; size?:number}): Promise<NewsPost[]> {
     const newsPostTable = await newsPostTablePromise;
-    return await newsPostTable.getAll();
+    const all = await newsPostTable.getAll();
+
+    if (!params) return all;
+
+    const {page=0, size=all.length} = params
+    const start = page * size;
+
+    return all.slice(start, start + size);
+
+  //  return await newsPostTable.getAll();
 }
 
 export async function getPostById (id: number): Promise<NewsPost | undefined> {
@@ -25,7 +34,7 @@ export async function getPostById (id: number): Promise<NewsPost | undefined> {
     return await newsPostTable.getById(id)
 }
 
-   // const byId = await newsPostTable.getById(created.id);
+
 
 export async function updatePost (id: number, data: Partial<NewsPostProps>): Promise<NewsPost> {
     const newsPostTable = await newsPostTablePromise;

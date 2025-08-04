@@ -81,9 +81,5 @@ export class NewsPostTable {
     }
 }
 
-// Фабрика для створення екземпляра
-//export async function getTable(tableName: string): Promise<NewsPostTable> {
-//    return new NewsPostTable(tableName);}
-
 export function getTable(tableName: string): Promise<NewsPostTable> {
     return Promise.resolve(new NewsPostTable(tableName));}

@@ -1,24 +1,26 @@
 import {Router, Request, Response} from "express";
 import {getAllPosts, getPostById, createPost, updatePost, deletePost} from "../API"
+import { NewsPostService } from "../serices/NewsPostService";
 
 const router = Router();
-function logRoute(method: string, path: string) {
-    console.log(`🔗 Registering route [${method}] ${path}`);
-}
-logRoute('GET', '/newsposts');
-router.get("/newsposts", async (_req: Request, res: Response) => {
+
+router.get("/newsposts", async (req: Request, res: Response) => {
     try {
-        const posts = await getAllPosts();
+
+        const page = Number(req.query.page) || 0;
+        const size = Number(req.query.size) || 10;
+        const posts = await NewsPostService.getAll({page, size});
+        console.log(`page # ${page}, size ${size}`);
         res.json(posts);
     } catch (err) {
         console.error('❌ GET /newsposts failed:', err);
         res.status(500).send("Server error");
     }
 });
-logRoute('GET', '/newsposts/:id');
+
 router.get("/newsposts/:id", async (req: Request, res: Response) => {
     try {
-        const post = await getPostById(Number(req.params.id));
+        const post = await NewsPostService.getById(Number(req.params.id));
         if (!post) return res.status(404).send("Not found");
         res.json(post);
     } catch (err) {
@@ -26,30 +28,30 @@ router.get("/newsposts/:id", async (req: Request, res: Response) => {
         res.status(500).send("Server error");
     }
 });
-logRoute('POST', '/newsposts');
+
 router.post("/newsposts", async (req: Request, res: Response) => {
     try {
-        const post = await createPost(req.body);
+        const post = await NewsPostService.create(req.body);
         res.json(post);
     } catch (err) {
         console.error('❌ POST /newsposts failed:', err);
         res.status(500).send("Server error");
     }
 });
-logRoute('PUT', '/newsposts/:id');
+
 router.put("/newsposts/:id", async (req: Request, res: Response) => {
     try {
-        const updated = await updatePost(Number(req.params.id), req.body);
+        const updated = await NewsPostService.update(Number(req.params.id), req.body);
         res.json(updated);
     } catch (err) {
         console.error('❌ PUT /newsposts/:id failed:', err);
         res.status(500).send("Server error");
     }
 });
-logRoute('DELETE', '/newsposts/:id');
+
 router.delete("/newsposts/:id", async (req: Request, res: Response) => {
     try {
-        const id = await deletePost(Number(req.params.id));
+        const id = await NewsPostService.delete(Number(req.params.id));
         res.json({ id });
     } catch (err) {
         console.error('❌ DELETE /newsposts failed:', err);
