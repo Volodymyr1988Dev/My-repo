@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a3d92e-8908-421d-af18-a544adb63448" name="Changes" comment="hw5">
-      <change afterPath="$PROJECT_DIR$/client/src/NewsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/fileDb.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/fileDb.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/newsPosts.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/newsPosts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +154,7 @@
       <workItem from="1754310337172" duration="309000" />
       <workItem from="1754323454844" duration="4257000" />
       <workItem from="1754341746205" duration="693000" />
-      <workItem from="1754345808579" duration="2697000" />
+      <workItem from="1754345808579" duration="3736000" />
     </task>
     <task id="LOCAL-00001" summary="hw5">
       <option name="closed" value="true" />
