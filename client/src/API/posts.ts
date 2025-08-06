@@ -1,3 +1,5 @@
+import { Gennre } from "enum/enum";
+
 export const API_URL = "/api/newsposts";
 
 export const fetchAllPosts = async () => {
@@ -10,7 +12,7 @@ export const getPostById = async (id: number) => {
     return res.json();
 };
 
-export const createNewPost = async (post: { title: string; text: string }) => {
+export const createNewPost = async (post: { title: string; text: string; genre: Gennre; isPrivate: boolean }) => {
     const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -19,7 +21,7 @@ export const createNewPost = async (post: { title: string; text: string }) => {
     return res.json();
 };
 
-export const updatePost = async (id: number, data: { title?: string; text?: string }) => {
+export const updatePost = async (id: number, data: { title?: string; text?: string; genre?: Gennre; isPrivate?: boolean }) => {
     const res = await fetch(`${API_URL}/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

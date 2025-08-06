@@ -1,6 +1,9 @@
-import {Router, Request, Response} from "express";
+import {Router, Request, Response, NextFunction} from "express";
 import {getAllPosts, getPostById, createPost, updatePost, deletePost} from "../API"
 import { NewsPostService } from "../serices/NewsPostService";
+import { validateNewPost } from "../validation/validateNewPost";
+import { ValidationError } from "../Errors/validationError";
+import { NewsPostServiceError } from "../Errors/newsPostServiceError";
 
 const router = Router();
 
@@ -29,24 +32,36 @@ router.get("/newsposts/:id", async (req: Request, res: Response) => {
     }
 });
 
-router.post("/newsposts", async (req: Request, res: Response) => {
-    try {
+router.post("/newsposts", async (req: Request, res: Response, next: NextFunction) => {
+   // try {
+        const isValid = validateNewPost(req.body)
+        if (!isValid) {
+            const errors = validateNewPost.errors?.map(e => `${e.instancePath} ${e.message}`).join(', ');
+        return next(new ValidationError(`Validation failed: ${errors}`));
+        }
         const post = await NewsPostService.create(req.body);
         res.json(post);
-    } catch (err) {
-        console.error('❌ POST /newsposts failed:', err);
-        res.status(500).send("Server error");
-    }
+        res.status(201).send('created')
+   // } catch (err) {
+   //     console.error('❌ POST /newsposts failed:', err);
+   //     res.status(500).send("Server error");
+   // }
 });
 
-router.put("/newsposts/:id", async (req: Request, res: Response) => {
-    try {
+router.put("/newsposts/:id", async (req: Request, res: Response, next: NextFunction) => {
+   // try {
+   const isValid = validateNewPost(req.body)
+   if (!isValid) {
+    const errors = validateNewPost.errors?.map(e => `${e.instancePath} ${e.message}`).join(', ');
+    return next(new ValidationError(`Validation failed: ${errors}`));
+  }
         const updated = await NewsPostService.update(Number(req.params.id), req.body);
         res.json(updated);
-    } catch (err) {
-        console.error('❌ PUT /newsposts/:id failed:', err);
-        res.status(500).send("Server error");
-    }
+        res.status(200).send('Updated')
+   // } catch (err) {
+   //     console.error('❌ PUT /newsposts/:id failed:', err);
+  //      res.status(500).send("Server error");
+  //  }
 });
 
 router.delete("/newsposts/:id", async (req: Request, res: Response) => {
@@ -57,6 +72,10 @@ router.delete("/newsposts/:id", async (req: Request, res: Response) => {
         console.error('❌ DELETE /newsposts failed:', err);
         res.status(500).send("Server error");
     }
+});
+
+router.get('/error', (_req: Request, _res: Response, next: NextFunction) => {
+  return next(new NewsPostServiceError('Simulated service error'));
 });
 
 export default router

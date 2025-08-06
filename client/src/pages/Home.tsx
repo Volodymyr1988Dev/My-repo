@@ -42,9 +42,12 @@ const Home = () => {
                     <h3>{post.title}</h3>
                     <p style={textClampStyle}>{post.text}</p>
                     <small>{new Date(post.createDate).toLocaleString()}</small>
-                </div>
-            ))}
-        </div>
+                    <small>
+                    Жанр: {post.genre} | {post.isPrivate ? "Приватна" : "Публічна"}
+                    </small>
+                    </div>
+                    ))}
+                    </div>
     );
 };
 

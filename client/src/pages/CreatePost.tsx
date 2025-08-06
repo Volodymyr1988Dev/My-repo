@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createNewPost } from "../API/posts";
+import { Gennre } from "enum/enum";
+
 
 export default function CreatePost() {
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
+    const [genre, setGenre] = useState<Gennre>(Gennre.POLITIC);
+    const [isPrivate, setIsPrivate] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        await createNewPost({ title, text });
+        await createNewPost({ title, text, genre, isPrivate });
         navigate("/");
     };
 
@@ -28,6 +32,20 @@ export default function CreatePost() {
                 placeholder="Текст"
                 required
             />
+            <label>
+                Жанр:
+                <select value={genre} onChange={(e) => setGenre(e.target.value as Gennre)}>
+                    {Object.values(Gennre).map((g) => (
+                        <option key={g} value={g}>
+                            {g}
+                        </option>
+                    ))}
+                </select>
+            </label>
+            <label>
+                Приватна новина:
+                <input type="checkbox" checked={isPrivate} onChange={(e) => setIsPrivate(e.target.checked)} />
+            </label>
             <button type="submit">Опублікувати</button>
         </form>
     );

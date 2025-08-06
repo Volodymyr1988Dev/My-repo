@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getPostById, updatePost } from "../API/posts";
 import { NewsPost } from "../interface/NewsPost";
+import { Gennre } from "enum/enum";
 
 export default function EditPost() {
     const { id } = useParams<{ id: string }>();
@@ -54,6 +55,19 @@ export default function EditPost() {
                 onChange={(e) => setPost({ ...post, text: e.target.value })}
                 required
             />
+            <label>
+            Жанр:
+            <select
+                value={post.genre}
+                onChange={(e) => setPost({ ...post, genre: e.target.value as Gennre })}
+            >
+                {Object.values(Gennre).map((g) => (
+                    <option key={g} value={g}>
+                        {g}
+                    </option>
+                ))}
+            </select>
+        </label>
             <button type="submit">Зберегти зміни</button>
         </form>
     );

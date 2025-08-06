@@ -6,7 +6,7 @@
     "start": "concurrently \"npm run dev:server --prefix server\" \"npm start --prefix client\"",
     "build": "npm run build --prefix client",
     "dev:client": "npm run start --prefix client",
-    "dev:server": "npm run dev:server --prefix server"
+    "dev:server": "npm start --prefix server"
   },
   "author": "",
   "license": "ISC",

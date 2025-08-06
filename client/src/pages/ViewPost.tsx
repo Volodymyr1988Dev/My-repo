@@ -36,6 +36,8 @@ export default function ViewPost() {
         <div style={postStyle}>
             <h1>{post.title}</h1>
             <p>{post.text}</p>
+            <p><strong>Жанр:</strong> {post.genre}</p>
+            <p><strong>Приватна:</strong> {post.isPrivate ? "Так" : "Ні"}</p>
             <small>Створено: {new Date(post.createDate).toLocaleString()}</small>
             <div style={{ marginTop: "1rem" }}>
                 <Link to={`/edit/${post.id}`}>Редагувати</Link> | <Link to="/">На головну</Link>

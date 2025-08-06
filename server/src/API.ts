@@ -5,11 +5,6 @@ import {NewsPost} from "./interface/NewsPost";
 
 
 const newsPostTablePromise = getTable('newsPosts');
-
-    const newPostData: NewsPostProps = {
-        title: 'Лисичка народила!',
-        text: 'У Чернігові в зоопарку лисичка народила лисенятко!',
-    };
 export async function createPost (data: NewsPostProps): Promise<NewsPost> {
     const newsPostTable = await newsPostTablePromise;
     return await newsPostTable.create(data);

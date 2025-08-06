@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import {API_URL} from "../API/posts";
 
-const Sidebar = () => {
+const SideBar = () => {
     const navigate = useNavigate();
 
     return (
@@ -14,4 +14,4 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+export default SideBar;
