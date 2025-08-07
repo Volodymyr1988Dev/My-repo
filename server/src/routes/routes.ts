@@ -4,6 +4,13 @@ import { NewsPostService } from "../serices/NewsPostService";
 import { validateNewPost } from "../validation/validateNewPost";
 import { ValidationError } from "../Errors/validationError";
 import { NewsPostServiceError } from "../Errors/newsPostServiceError";
+import bcrypt from "bcrypt";
+import { UserInterface } from "../interface/userInterface";
+import { registerHandler, loginHandler } from "../middleware/auth";
+import passport from "passport";
+import { getUserHandler } from "../middleware/getUser";
+
+
 
 const router = Router();
 
@@ -47,7 +54,13 @@ router.post("/newsposts", async (req: Request, res: Response, next: NextFunction
    //     res.status(500).send("Server error");
    // }
 });
-
+//router.post("/register", (req, res, next) => {
+  //console.log("➡️ Register route triggered");
+ // next(); // передаємо управління до registerHandler
+//}, registerHandler);
+router.post("/register", registerHandler);
+router.post("/login", loginHandler);
+router.get("/user", passport.authenticate('jwt', { session: false }), getUserHandler);
 router.put("/newsposts/:id", async (req: Request, res: Response, next: NextFunction) => {
    // try {
    const isValid = validateNewPost(req.body)
@@ -73,7 +86,9 @@ router.delete("/newsposts/:id", async (req: Request, res: Response) => {
         res.status(500).send("Server error");
     }
 });
-
+router.get("/ping", (_req, res) => {
+  res.send("pong");
+});
 router.get('/error', (_req: Request, _res: Response, next: NextFunction) => {
   return next(new NewsPostServiceError('Simulated service error'));
 });
