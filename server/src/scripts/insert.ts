@@ -9,11 +9,10 @@ import { NewsPostProps } from '../interface/NewsPostProps';
     const args = minimist(process.argv.slice(2));
     const { title, text, genre, isPrivate } = args;
 
-    // Отримуємо поточну кількість постів (щоб призначити id = довжина + 1)
-    const allPosts = await getAllPosts({ page: 0, size: Number.MAX_SAFE_INTEGER });
-    const newId = allPosts.length + 1;
-
-    // Формуємо новий пост
+    if (!title || !text) {
+      console.error('❌ Використання: node scripts/insert --title="Заголовок" --text="Текст" [--genre=GENRE] [--isPrivate=true]');
+      process.exit(1);
+    }
     const newPost: NewsPostProps = {
       title,
       text,
@@ -21,14 +20,12 @@ import { NewsPostProps } from '../interface/NewsPostProps';
       isPrivate: isPrivate === 'true' || isPrivate === true,
     };
 
-    // Валідація через Ajv
     const valid = validateNewPost(newPost);
     if (!valid) {
       console.error('❌ Дані не валідні:', validateNewPost.errors);
       process.exit(1);
     }
 
-    // Запис у БД
     const post = await createPost(newPost);
     console.log('✅ Створено пост:', post);
 

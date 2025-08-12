@@ -28,7 +28,6 @@ import { validateNewPost } from '../validation/validateNewPost';
       process.exit(1);
     }
 
-    // Валідація — використовуємо схему нового поста, але без id та createDate
     const valid = validateNewPost({
       title: updateData.title ?? 'validTitle',
       text: updateData.text ?? 'validText',

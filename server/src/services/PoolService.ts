@@ -1,14 +1,6 @@
 import pool from '../pool'; 
-import { NewsPost } from '../interface/NewsPost';
 import { NewsPostProps } from '../interface/NewsPostProps';
 
-
-// export interface CreatePostInput {
-//   title: string;
-//   text: string;
-//   genre?: string;
-//   isPrivate?: boolean;
-// }
 
 function toSnakeCase(s: string) {
   return s.replace(/[A-Z]/g, m => `_${m.toLowerCase()}`).replace(/^_/, '');
@@ -72,11 +64,6 @@ export async function createPost(post: NewsPostProps) {
   return res.rows[0];
 }
 
-/**
- * Динамічне оновлення — updateData може містити будь-які поля
- * (title, text, genre, isPrivate і т.д.). Ми перетворюємо camelCase -> snake_case
- * і формуємо SET частину динамічно.
- */
 export async function updatePost(id: number, updateData: Record<string, any>) {
   const keys = Object.keys(updateData).filter(k => updateData[k] !== undefined);
   if (keys.length === 0) throw new Error('No fields to update');

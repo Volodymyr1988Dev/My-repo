@@ -12,13 +12,3 @@ const pool = new Pool({
 });
 
 export default pool;
-/*
-const pool = new Pool({
-  user: "postgres", // або newsUser
-  host: "localhost",
-  database: "postgres",
-  password: "123456",
-  port: 5432,
-  ssl: false // <-- додаємо це
-});
-*/
