@@ -25,8 +25,8 @@
   },
   {
     "id": 5,
-    "title": "Checking",
-    "text": "Checking new options here",
+    "title": "Creating and then update from PostMan",
+    "text": "Checking new options here from PostMan",
     "genre": "Other",
     "isPrivate": false,
     "createDate": "2025-08-06T17:52:26.850Z"

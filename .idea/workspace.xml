@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a3d92e-8908-421d-af18-a544adb63448" name="Changes" comment="hw5">
-      <change afterPath="$PROJECT_DIR$/server/src/validation/newPostSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/interface/NewsPostProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/interface/NewsPostProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/newsPosts.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/newsPosts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +162,9 @@
       <workItem from="1754323454844" duration="4257000" />
       <workItem from="1754341746205" duration="693000" />
       <workItem from="1754345808579" duration="7276000" />
+      <workItem from="1754928789620" duration="854000" />
+      <workItem from="1754929911486" duration="287000" />
+      <workItem from="1754933567698" duration="85000" />
     </task>
     <task id="LOCAL-00001" summary="hw5">
       <option name="closed" value="true" />

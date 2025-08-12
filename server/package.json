@@ -6,7 +6,14 @@
     "start": "node dist/index.js",
     "dev:server": "ts-node src/index.ts",
     "build": "tsc",
-    "dev:nodemon": "tsc & nodemon dist/index.js"
+    "dev:nodemon": "tsc & nodemon dist/index.js",
+
+    "pool:create": "ts-node src/scripts/createTable.ts",
+    "pool:all": "ts-node src/scripts/getAll.ts",
+    "pool:insert": "ts-node src/scripts/insert.ts",
+    "pool:update": "ts-node src/scripts/update.ts",
+    "pool:byid": "ts-node src/scripts/getById.ts",
+    "pool:delete": "ts-node src/scripts/delete.ts"
   },
   "keywords": [],
   "author": "",
@@ -20,9 +27,11 @@
     "dotenv": "^17.2.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
+    "minimist": "^1.2.8",
     "nodemon": "^3.1.10",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
+    "pg": "^8.16.3",
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
@@ -30,8 +39,10 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/minimist": "^1.2.5",
     "@types/node": "^24.1.0",
     "@types/passport-jwt": "^4.0.1",
+    "@types/pg": "^8.15.5",
     "@types/winston": "^2.4.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
