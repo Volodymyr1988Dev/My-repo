@@ -11,9 +11,14 @@
     "pool:create": "ts-node src/scripts/createTable.ts",
     "pool:all": "ts-node src/scripts/getAll.ts",
     "pool:insert": "ts-node src/scripts/insert.ts",
-    "pool:update": "ts-node src/scripts/update.ts",
+    "pool:update": "ts-node src/scripts/update.ts",  
     "pool:byid": "ts-node src/scripts/getById.ts",
-    "pool:delete": "ts-node src/scripts/delete.ts"
+    "pool:delete": "ts-node src/scripts/delete.ts",
+    "pool:videoCreate": "ts-node src/scripts/videos/createTable.ts",
+    "pool:videoFind": "ts-node src/scripts/videos/find.ts",
+    "pool:videoInsert": "ts-node src/scripts/videos/insert.ts",
+    "pool:videoPaginate": "ts-node src/scripts/videos/paginate.ts",
+    "pool:videoGroup": "ts-node src/scripts/videos/group.ts"
   },
   "keywords": [],
   "author": "",

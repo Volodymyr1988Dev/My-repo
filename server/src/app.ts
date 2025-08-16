@@ -6,6 +6,7 @@ import { requestLogger } from "./middleware/requestLogger";
 import { errorHandler } from "./middleware/errorHandler";
 import passport from "passport";
 
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -25,3 +26,13 @@ app.get("*", (_req: Request, res: Response) => {
 app.use(errorHandler);
 
 export {app}
+//npm run pool:update -- --id=1 --title="Updated title" 
+//npm run pool:delete -- --id=1
+//npm run pool:byid -- --id=2
+//npm run pool:all -- --page=0 --size=5
+//npm run pool:insert -- --title="Hello from DB" --text="Enother interesting text" --genre="Other" --isPrivate=false
+
+//npm run pool:videoInsert -- --title='Howdoes it was' --views='500' --category='History'
+//npm run pool:videoPaginate -- --page=1 --size=2
+//npm run pool:videoFind -- --search="Happy"
+//npm run pool:videoGroup
