@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { NewsPost } from "./interface/NewsPost";
+import { deletePost } from "./API/posts";
 
 export default function NewsList() {
     const [posts, setPosts] = useState<NewsPost[]>([]);
@@ -12,8 +13,9 @@ export default function NewsList() {
         fetch(`/api/newsposts?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => {
-                setPosts(data);
-                setHasMore(data.length === size);
+                console.log("Fetched data", data);
+                setPosts(data.posts ?? data);
+                setHasMore((data.posts ?? data).length === size);
             })
             .catch(console.error);
     }, [page, size]);
@@ -27,13 +29,25 @@ export default function NewsList() {
         const newPage = page + 1;
         setSearchParams({ page: String(newPage), size: String(size) });
     };
-
+    const handleDelete = async (id: number) => {
+        try {
+                await deletePost(id);
+                setPosts(posts.filter(post => post.id !== id));
+                alert("Пост видалено");
+            } catch (err) {
+                alert("Не вдалося видалити пост");
+            }
+        }        
     return (
         <div>
             <h2>Новини</h2>
             {posts.map(post => (
                 <div key={post.id} style={{ marginBottom: "1rem" }}>
-                    <h3>{post.title}</h3>
+                    <div style={{ display: "flex", justifyContent: "space-between" }} >
+                <h3>{post.title}</h3>
+                <button onClick={() => handleDelete(post.id)} style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: "1.5rem" }}>❌</button>
+                </div>
+                    
                     <p className="clamped-text">{post.text}</p>
                     <Link to={`/post/${post.id}`}>Читати більше</Link>
                 </div>

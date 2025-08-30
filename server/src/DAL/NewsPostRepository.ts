@@ -1,4 +1,4 @@
-import { getTable } from "../fileDb";
+import { getTable } from "../controllers/fileDb";
 import { NewsPostProps } from "../interface/NewsPostProps";
 import { NewsPost } from "../interface/NewsPost";
 

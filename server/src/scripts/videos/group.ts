@@ -1,5 +1,5 @@
 import { assert } from 'node:console';
-import pool from '../../pool';
+import pool from '../../utils/pool';
 
 export async function createTableGroup() {
     const sql = `

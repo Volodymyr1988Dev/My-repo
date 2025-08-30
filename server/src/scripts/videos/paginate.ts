@@ -1,4 +1,4 @@
-import pool from '../../pool';
+import pool from '../../utils/pool';
 import minimist from 'minimist';
 
 export async function videoPaginate() {

@@ -14,5 +14,8 @@
   "description": "",
   "devDependencies": {
     "concurrently": "^9.2.0"
+  },
+  "dependencies": {
+    "git-filter-repo": "^0.0.30"
   }
 }

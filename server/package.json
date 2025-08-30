@@ -7,11 +7,10 @@
     "dev:server": "ts-node src/index.ts",
     "build": "tsc",
     "dev:nodemon": "tsc & nodemon dist/index.js",
-
     "pool:create": "ts-node src/scripts/createTable.ts",
     "pool:all": "ts-node src/scripts/getAll.ts",
     "pool:insert": "ts-node src/scripts/insert.ts",
-    "pool:update": "ts-node src/scripts/update.ts",  
+    "pool:update": "ts-node src/scripts/update.ts",
     "pool:byid": "ts-node src/scripts/getById.ts",
     "pool:delete": "ts-node src/scripts/delete.ts",
     "pool:videoCreate": "ts-node src/scripts/videos/createTable.ts",
@@ -22,6 +21,7 @@
   },
   "keywords": [],
   "author": "",
+  "type": "commonjs",
   "license": "ISC",
   "description": "",
   "dependencies": {
@@ -37,6 +37,8 @@
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.26",
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
@@ -50,7 +52,7 @@
     "@types/pg": "^8.15.5",
     "@types/winston": "^2.4.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
+    "typescript": "^4.9.5",
     "winston": "^3.17.0"
   }
 }

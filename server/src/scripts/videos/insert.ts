@@ -1,5 +1,5 @@
 import { videoEnum } from '../../enum/videoEnum';
-import pool from '../../pool';
+import pool from '../../utils/pool';
 import minimist from 'minimist';
 
 

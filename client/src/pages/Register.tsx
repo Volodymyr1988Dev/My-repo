@@ -23,7 +23,7 @@ const Register = () => {
       }
 
       const data = await res.json();
-      localStorage.setItem('token', data.token);
+      sessionStorage.setItem('token', data.token);
       navigate('/api/newsposts');
     } catch (err: any) {
       setError(err.message);

@@ -1,4 +1,4 @@
-import pool from '../../pool'
+import pool from '../../utils/pool'
 
 export async function createTableVideo(): Promise<void> {
   const sql = `

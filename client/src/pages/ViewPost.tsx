@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { getPostById } from "../API/posts";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { deletePost, getPostById } from "../API/posts";
 import { NewsPost } from "../interface/NewsPost";
 
 export default function ViewPost() {
@@ -8,7 +8,7 @@ export default function ViewPost() {
     const [post, setPost] = useState<NewsPost | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-
+const navigate = useNavigate()
     useEffect(() => {
         const loadPost = async () => {
             try {
@@ -31,9 +31,21 @@ export default function ViewPost() {
     if (loading) return <p>Завантаження...</p>;
     if (error) return <p>{error}</p>;
     if (!post) return null;
-
+const handleDelete = async () => {
+    if (!id) return;
+    try {
+            await deletePost(Number(id));
+            alert("Пост видалено");
+            navigate("/posts");
+        } catch (err) {
+            alert("Не вдалося видалити пост");
+        }  
+}
     return (
         <div style={postStyle}>
+            <div style={{ display: "flex", justifyContent: "flex-end" }} >
+                <button onClick={handleDelete} style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: "1.5rem" }}>❌</button>
+            </div>
             <h1>{post.title}</h1>
             <p>{post.text}</p>
             <p><strong>Жанр:</strong> {post.genre}</p>

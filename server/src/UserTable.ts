@@ -1,4 +1,4 @@
-import { UserInterface } from './interface/userInterface';
+import { UserInterface } from './interface/UserInterface';
 import path from 'path';
 import fs from 'fs';
 

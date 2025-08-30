@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
+type LoginProps = {
+  setToken: (t: string) => void;
+};
+
+
+const Login:React.FC<LoginProps> = ({ setToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -22,13 +28,14 @@ const Login = () => {
       }
       const data = await res.json();
      // Login(data.token);
-      localStorage.setItem('token', data.token);
-      navigate('/api/newsposts');
+      sessionStorage.setItem('token', data.token);
+      setToken(data.token);
+      console.log('Logged in with token:', data.token);
+      navigate('/posts');
     } catch (err: any) {
       setError(err.message);
     }
   };
-
   return (
     <form onSubmit={handleLogin}>
       <h2>Login</h2>
@@ -36,7 +43,9 @@ const Login = () => {
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       <button type="submit">Login</button>
+       <Link to="/register">Зареєструватися</Link>
     </form>
+
   );
 };
 
