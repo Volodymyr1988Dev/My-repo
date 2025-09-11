@@ -4,16 +4,12 @@ import { NewsPost } from "../entities/NewsPost";
 const repo = AppDataSource.getRepository(NewsPost);
 
 export class NewsService {
- // async createPost(data: Partial<NewsPost>) {
    async createPost(data: Partial<NewsPost>, userId: number) {
     const userRepo = AppDataSource.getRepository("User");
     const author = await userRepo.findOneBy({ id: userId });
     if (!author) throw new Error("Author not found");
     const post = repo.create({ ...data, author });
-    
-    //const post = repo.create(data);
     const saved = await repo.save(post);
-    console.log("✅ Збережено пост:", saved);
     return saved;
   }
 
@@ -23,7 +19,6 @@ export class NewsService {
       take: size,
       relations: ["author"],
     });
-    console.log("📌 Отримано пости:", posts);
     return { posts, total };
   }
 

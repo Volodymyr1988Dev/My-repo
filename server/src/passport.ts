@@ -21,32 +21,6 @@ passport.use(
     catch(err){
       return done(err, false);
     }
-   // const user = await userTable.findById(jwt_payload.id);
-   // if (user) return done(null, user);
-   // else return done(null, false);
   })
 );
-/*
-passport.use(
-  "jwt",
-  new JwtStrategy(opts, (jwt_payload, done) => {
-    const userRepo = AppDataSource.getRepository(User);
-
-    userRepo
-      .findOne({
-        where: { id: jwt_payload.id },
-        select: ["id", "email"],
-      })
-      .then((user) => {
-        if (user) {
-          return done(null, user);
-        }
-        return done(null, false);
-      })
-      .catch((err) => {
-        return done(err, false);
-      });
-  })
-);
-*/
 export default passport;

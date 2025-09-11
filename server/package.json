@@ -7,6 +7,9 @@
     "dev:server": "ts-node src/index.ts",
     "build": "tsc",
     "dev:nodemon": "tsc & nodemon dist/index.js",
+    "migration:generate": "typeorm migration:generate src/migration/RenameAndAddDeletedField -d dist/middleware/DataSource.js",
+    "migration:run": "typeorm migration:run -d dist/middleware/DataSource.js",
+    "seed": "ts-node src/seeds/seed.ts",
     "pool:create": "ts-node src/scripts/createTable.ts",
     "pool:all": "ts-node src/scripts/getAll.ts",
     "pool:insert": "ts-node src/scripts/insert.ts",
@@ -25,6 +28,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^10.0.0",
     "@sentry/node": "^10.2.0",
     "ajv": "^8.17.1",
     "bcrypt": "^6.0.0",

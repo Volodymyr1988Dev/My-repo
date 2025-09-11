@@ -43,10 +43,10 @@ const handleDelete = async () => {
 }
     return (
         <div style={postStyle}>
-            <div style={{ display: "flex", justifyContent: "flex-end" }} >
+            <div style={{ display: "flex", justifyContent: "space-between" }} >
+                <h1>{post.title}</h1>
                 <button onClick={handleDelete} style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: "1.5rem" }}>❌</button>
             </div>
-            <h1>{post.title}</h1>
             <p>{post.text}</p>
             <p><strong>Жанр:</strong> {post.genre}</p>
             <p><strong>Приватна:</strong> {post.isPrivate ? "Так" : "Ні"}</p>

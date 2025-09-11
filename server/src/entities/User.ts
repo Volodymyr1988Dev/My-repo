@@ -16,6 +16,9 @@ export class User {
     @Column({ type: 'varchar', length: 255 })
     passwordHash!: string;
 
+    @Column({default: false})
+    deleted!: boolean;
+
 
     @OneToMany(() => NewsPost, post => post.author)
     posts!: NewsPost[];

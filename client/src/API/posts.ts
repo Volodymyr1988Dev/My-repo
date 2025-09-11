@@ -23,7 +23,6 @@ export const createNewPost = async (post: { title: string; text: string; genre: 
         method: "POST",
        headers: {
             "Content-Type": "application/json",
-           // "Authorization": `Bearer ${token}`,
             "Authorization": token.startsWith("Bearer ") ? token : `Bearer ${token}`,
             },
         body: JSON.stringify(post),
@@ -36,9 +35,15 @@ export const createNewPost = async (post: { title: string; text: string; genre: 
 };
 
 export const updatePost = async (id: number, data: { title?: string; text?: string; genre?: Gennre; isPrivate?: boolean }) => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+        throw new Error("No authentication token provided");
+    }
     const res = await fetch(`${API_URL}/${id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+             "Authorization": token.startsWith("Bearer ") ? token : `Bearer ${token}`,
+         },
         body: JSON.stringify(data),
     });
     return res.json();
@@ -54,7 +59,7 @@ export const deletePost = async (id: number) => {
         method: "DELETE", 
         headers: {
             "Content-Type": "application/json",
-            "Authorization": token,
+            "Authorization": token.startsWith("Bearer ") ? token : `Bearer ${token}`,
         }
     });
 

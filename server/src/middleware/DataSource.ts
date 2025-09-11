@@ -10,7 +10,8 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER || "postgres",
   password: process.env.DB_PASS || "12345",
   database: process.env.DB_NAME || "newsdb",
-  synchronize: true,  // для розробки можна true, на проді - migration
+  synchronize: true,
   logging: false,
   entities: [User, NewsPost],
+  migrations: ["src/migrations/*.ts"],
 });

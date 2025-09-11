@@ -5,7 +5,6 @@ import { Gennre } from "enum/enum";
 
 
 export default function CreatePost() {
-   // const token = sessionStorage.getItem("token");
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [genre, setGenre] = useState<Gennre>(Gennre.POLITIC);
@@ -14,8 +13,6 @@ export default function CreatePost() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-       // await createNewPost({ title, text, genre, isPrivate });
-       // navigate("/");
         try{
         const newPost = await createNewPost({ title, text, genre, isPrivate });
         console.log("New post created:", newPost);
@@ -25,18 +22,7 @@ export default function CreatePost() {
         catch (err: any) {
             console.error("Error creating post:", err);
             alert(err.message || "Failed to create post");
-        }
-//  const [token, setToken] = useState<string | null>(sessionStorage.getItem("token"));
-  
-
- 
-
-//  return res.json();
-
-
-    
-
-    
+        } 
   };
 
     return (

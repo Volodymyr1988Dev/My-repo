@@ -31,11 +31,11 @@ export default function NewsList() {
     };
     const handleDelete = async (id: number) => {
         try {
+            setPosts(posts.filter(post => post.id !== id));
                 await deletePost(id);
-                setPosts(posts.filter(post => post.id !== id));
                 alert("Пост видалено");
             } catch (err) {
-                alert("Не вдалося видалити пост");
+                console.error("Не вдалося видалити пост");
             }
         }        
     return (

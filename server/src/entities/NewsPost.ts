@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index } from "typeorm";
 import { User } from "./User";
 import def from "ajv/dist/vocabularies/discriminator";
 import { Genre } from "../enum/enum";
@@ -10,18 +10,25 @@ export class NewsPost {
     id!: number;
 
     @Column()
-    title!: string;
+    @Index()
+    header!: string;
+    
 
     @Column()
     text!: string;
 
     @Column()
+    @Index()
     genre!: Genre
+
+    @Column({default: false})
+    deleted!: boolean;
 
     @Column({default : false})
     isPrivate!: boolean;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @Index()
     createDate!: Date;
 
     @ManyToOne(() => User, user => user.posts, { eager: true })
