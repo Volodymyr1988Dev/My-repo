@@ -1,6 +1,6 @@
 import {User} from '../entities/User';
 import { NewsPost } from '../entities/NewsPost';
-import { AppDataSource } from '../middleware/DataSource';
+import { AppDataSource } from '../utils/DataSource';
 import bcryprt from 'bcrypt';
 import { faker } from '@faker-js/faker';
 import { Genre } from '../enum/enum';
@@ -18,13 +18,13 @@ const user = new User();
 
     for (let i = 1; i < 20; i++) {
         const post = new NewsPost()
-        post.title = faker.lorem.sentence();
+        post.header = faker.lorem.sentence();
         post.text = faker.lorem.paragraphs(2);
         post.isPrivate = false;
         post.genre = Genre.OTHER
         post.author = user;
         await AppDataSource.manager.save(post);
-        console.log(`Seeded post: ${post.title}`);
+        console.log(`Seeded post: ${post.header}`);
     }
     }
     else {

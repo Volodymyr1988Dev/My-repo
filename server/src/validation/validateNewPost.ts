@@ -7,7 +7,7 @@ const ajv = new Ajv({allErrors: true});
 export const newPostSchema ={
     type: 'object',
     properties: {
-        title: {type: 'string', maxLength: 50},
+        header: {type: 'string', maxLength: 50},
         text: {type: 'string', maxLength: 256},
         genre: {
         type: 'string',
@@ -16,7 +16,7 @@ export const newPostSchema ={
         isPrivate: {type: 'boolean'},
 
     },
-    required :['title', 'text', 'genre', 'isPrivate'],
+    required :['header', 'text', 'genre', 'isPrivate'],
     additionalProperties: false,
 }
 

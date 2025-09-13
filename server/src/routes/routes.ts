@@ -7,7 +7,7 @@ import { NewsPostServiceError } from "../Errors/newsPostServiceError";
 import { registerHandler, loginHandler } from "../middleware/auth";
 import passport from "passport";
 import { getUserHandler } from "../scripts/getUser";
-import { AppDataSource } from "../middleware/DataSource";
+import { AppDataSource } from "../utils/DataSource";
 import {NewsPost} from "../entities/NewsPost";
 import { User } from "../entities/User";
 import { NewsService } from "../services/NewsService";

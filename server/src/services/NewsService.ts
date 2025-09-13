@@ -1,4 +1,4 @@
-import { AppDataSource } from "../middleware/DataSource";
+import { AppDataSource } from "../utils/DataSource";
 import { NewsPost } from "../entities/NewsPost";
 
 const repo = AppDataSource.getRepository(NewsPost);

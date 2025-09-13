@@ -1,6 +1,6 @@
 import { Strategy as JwtStrategy, ExtractJwt, StrategyOptions } from 'passport-jwt';
 import passport from 'passport';
-import { AppDataSource } from './middleware/DataSource';
+import { AppDataSource } from './utils/DataSource';
 //import { UserTable } from './UserTable';
 import { User } from './entities/User';
 

@@ -3,7 +3,7 @@ import http from "http";
 import {app} from "./app";
 import dotenv from 'dotenv';
 dotenv.config();
-import { AppDataSource } from "./middleware/DataSource";
+import { AppDataSource } from "./utils/DataSource";
 import { seedUsers } from "./seed/seedUsers";
 
 
@@ -14,7 +14,7 @@ console.log("HOST", HOST, port);
 AppDataSource.initialize()
   .then(async() => {
     console.log("DB connected ✅");
-    //await seedUsers();
+   // await seedUsers();
     const server = http.createServer(app);
     server.listen(port, ()=> {console.log(`🚀 Server running at http://${HOST}:${port}`)});
   })

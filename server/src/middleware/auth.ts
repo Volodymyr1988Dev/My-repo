@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 //import { UserTable } from '../UserTable';
 import { ValidationError } from '../Errors/validationError';
-import { AppDataSource } from './DataSource';
+import { AppDataSource } from '../utils/DataSource';
 import { User } from '../entities/User';
 
 //const userTable = new UserTable();

@@ -9,7 +9,7 @@
     "dev:nodemon": "tsc & nodemon dist/index.js",
     "migration:generate": "typeorm migration:generate src/migration/RenameAndAddDeletedField -d dist/middleware/DataSource.js",
     "migration:run": "typeorm migration:run -d dist/middleware/DataSource.js",
-    "seed": "ts-node src/seeds/seed.ts",
+    "seed": "ts-node src/seed/seedUsers.ts",
     "pool:create": "ts-node src/scripts/createTable.ts",
     "pool:all": "ts-node src/scripts/getAll.ts",
     "pool:insert": "ts-node src/scripts/insert.ts",

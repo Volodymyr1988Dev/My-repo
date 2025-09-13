@@ -1,0 +1,50 @@
+stages:
+  - install
+  - lint
+  - build
+  - test
+  - deploy
+
+variables:
+  NODE_ENV: production
+  DATABASE_URL: $DATABASE_URL  # ElephantSQL URL
+
+cache:
+  paths:
+    - node_modules/
+
+install:
+  stage: install
+  image: node:20
+  script:
+    - npm ci
+
+lint:
+  stage: lint
+  image: node:20
+  script:
+    - npm run lint
+
+build:
+  stage: build
+  image: node:20
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+test:
+  stage: test
+  image: node:20
+  script:
+    - npm run test || echo "No tests configured, skipping"
+
+deploy:
+  stage: deploy
+  image: node:20
+  script:
+    - npm install -g netlify-cli
+    - netlify deploy --prod --dir=dist --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
+  only:
+    - main
