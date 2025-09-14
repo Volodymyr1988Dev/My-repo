@@ -44,7 +44,7 @@ const handleDelete = async () => {
     return (
         <div style={postStyle}>
             <div style={{ display: "flex", justifyContent: "space-between" }} >
-                <h1>{post.title}</h1>
+                <h1>{post.header}</h1>
                 <button onClick={handleDelete} style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: "1.5rem" }}>❌</button>
             </div>
             <p>{post.text}</p>

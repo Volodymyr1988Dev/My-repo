@@ -34,7 +34,7 @@ export default function EditPost() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!post) return;
-        await updatePost(post.id, { title: post.title, text: post.text });
+        await updatePost(post.id, { header: post.header, text: post.text });
         navigate(`/post/${post.id}`);
     };
 
@@ -46,8 +46,8 @@ export default function EditPost() {
         <form onSubmit={handleSubmit} style={formStyle}>
             <h2>Редагувати пост</h2>
             <input
-                value={post.title}
-                onChange={(e) => setPost({ ...post, title: e.target.value })}
+                value={post.header}
+                onChange={(e) => setPost({ ...post, header: e.target.value })}
                 required
             />
             <textarea

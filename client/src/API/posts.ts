@@ -12,7 +12,7 @@ export const getPostById = async (id: number) => {
     return res.json();
 };
 
-export const createNewPost = async (post: { title: string; text: string; genre: Gennre; isPrivate: boolean }, 
+export const createNewPost = async (post: { header: string; text: string; genre: Gennre; isPrivate: boolean }, 
     token: string | null = sessionStorage.getItem("token")
 ) => {
     if (!token) {
@@ -34,7 +34,7 @@ export const createNewPost = async (post: { title: string; text: string; genre: 
     return res.json();
 };
 
-export const updatePost = async (id: number, data: { title?: string; text?: string; genre?: Gennre; isPrivate?: boolean }) => {
+export const updatePost = async (id: number, data: { header?: string; text?: string; genre?: Gennre; isPrivate?: boolean }) => {
     const token = sessionStorage.getItem("token");
     if (!token) {
         throw new Error("No authentication token provided");

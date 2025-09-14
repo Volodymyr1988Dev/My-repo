@@ -5,7 +5,7 @@ import { Gennre } from "enum/enum";
 
 
 export default function CreatePost() {
-    const [title, setTitle] = useState("");
+    const [header, setHeader] = useState("");
     const [text, setText] = useState("");
     const [genre, setGenre] = useState<Gennre>(Gennre.POLITIC);
     const [isPrivate, setIsPrivate] = useState(false);
@@ -14,7 +14,7 @@ export default function CreatePost() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try{
-        const newPost = await createNewPost({ title, text, genre, isPrivate });
+        const newPost = await createNewPost({ header, text, genre, isPrivate });
         console.log("New post created:", newPost);
         alert("Пост успішно створено!");
         navigate("/posts");
@@ -29,8 +29,8 @@ export default function CreatePost() {
         <form onSubmit={handleSubmit} style={formStyle}>
             <h2>Створити новину</h2>
             <input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={header}
+                onChange={(e) => setHeader(e.target.value)}
                 placeholder="Заголовок"
                 required
             />

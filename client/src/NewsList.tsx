@@ -44,7 +44,7 @@ export default function NewsList() {
             {posts.map(post => (
                 <div key={post.id} style={{ marginBottom: "1rem" }}>
                     <div style={{ display: "flex", justifyContent: "space-between" }} >
-                <h3>{post.title}</h3>
+                <h3>{post.header}</h3>
                 <button onClick={() => handleDelete(post.id)} style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: "1.5rem" }}>❌</button>
                 </div>
                     
