@@ -1,8 +1,9 @@
+import dotenv from "dotenv";
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { User } from "../entities/User";
 import { NewsPost } from "../entities/NewsPost";
-import dotenv from "dotenv";
+
 
 dotenv.config();
 
@@ -24,6 +25,6 @@ export const AppDataSource = new DataSource({
   synchronize: true,
   logging: false,
   entities: [User, NewsPost],
-  migrations: ["src/migrations/*.ts"],
+  migrations: ["src/migration/*.ts"],
   ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : undefined,
 });

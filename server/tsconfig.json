@@ -9,7 +9,7 @@
    // "isolatedModules": true,
     "outDir": "./dist",
     "rootDir": "./src",
-   // "resolveJsonModule": true,
+    "resolveJsonModule": true,
    // "moduleDetection": "force",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

@@ -10,7 +10,7 @@ const path_1 = __importDefault(require("path"));
 const routes_1 = __importDefault(require("./routes/routes"));
 const requestLogger_1 = require("./middleware/requestLogger");
 const errorHandler_1 = require("./middleware/errorHandler");
-const passport_1 = __importDefault(require("passport"));
+const passport_1 = __importDefault(require("./passport"));
 const app = (0, express_1.default)();
 exports.app = app;
 app.use((0, cors_1.default)());
@@ -24,12 +24,9 @@ app.get("*", (_req, res) => {
     res.sendFile(path_1.default.join(clientBuildPath, "index.html"));
 });
 app.use(errorHandler_1.errorHandler);
-//npm run pool:update -- --id=1 --title="Updated title" 
-//npm run pool:delete -- --id=1
-//npm run pool:byid -- --id=2
-//npm run pool:all -- --page=0 --size=5
-//npm run pool:insert -- --title="Hello from DB" --text="Enother interesting text" --genre="Other" --isPrivate=false
-//npm run pool:videoInsert -- --title='Howdoes it was' --views='500' --category='History'
-//npm run pool:videoPaginate -- --page=1 --size=2
-//npm run pool:videoFind -- --search="Happy"
-//npm run pool:videoGroup
+//PGHOST=localhost
+//PGUSER=postgres
+//PGPASSWORD=123456
+//PGDATABASE=newsdb
+//PGPORT=5432
+//DB_PASS=123456
