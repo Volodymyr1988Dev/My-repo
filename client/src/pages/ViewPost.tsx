@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+
 import { deletePost, getPostById } from "../API/posts";
 import { NewsPost } from "../interface/NewsPost";
 
@@ -20,7 +21,10 @@ const navigate = useNavigate()
                     setPost(data);
                 }
             } catch (err) {
-                setError("Помилка при завантаженні поста");
+                if (err instanceof Error) {
+                    throw new Error("Помилка при завантаженні поста", err);
+                }
+                else setError("Помилка при завантаженні поста");
             } finally {
                 setLoading(false);
             }
@@ -38,7 +42,7 @@ const handleDelete = async () => {
             alert("Пост видалено");
             navigate("/posts");
         } catch (err) {
-            alert("Не вдалося видалити пост");
+            alert(err);
         }  
 }
     return (

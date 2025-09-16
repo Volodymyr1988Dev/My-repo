@@ -32,7 +32,12 @@ const Login:React.FC<LoginProps> = ({ setToken }) => {
       setToken(data.token);
       console.log('Logged in with token:', data.token);
       navigate('/posts');
-    } catch (err: any) {
+    } catch (err: unknown) {
+      if (!(err instanceof Error)) {
+        console.error("Unknown error:", err);
+        setError("An unknown error occurred");
+        return;
+      }
       setError(err.message);
     }
   };

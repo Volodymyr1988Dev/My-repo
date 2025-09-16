@@ -1,7 +1,8 @@
+import { Gennre } from "enum/enum";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { createNewPost } from "../API/posts";
-import { Gennre } from "enum/enum";
 
 
 export default function CreatePost() {
@@ -19,7 +20,12 @@ export default function CreatePost() {
         alert("Пост успішно створено!");
         navigate("/posts");
         }
-        catch (err: any) {
+        catch (err: unknown) {
+            if (!(err instanceof Error)) {
+                console.error("Unknown error:", err);
+                alert("An unknown error occurred");
+                return;
+            }
             console.error("Error creating post:", err);
             alert(err.message || "Failed to create post");
         } 

@@ -4,16 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const validateNewPost_1 = require("../validation/validateNewPost");
-const validationError_1 = require("../Errors/validationError");
-const newsPostServiceError_1 = require("../Errors/newsPostServiceError");
-const auth_1 = require("../middleware/auth");
 const passport_1 = __importDefault(require("passport"));
-const getUser_1 = require("../middleware/getUser");
-const DataSource_1 = require("../utils/DataSource");
 const NewsPost_1 = require("../entities/NewsPost");
 const User_1 = require("../entities/User");
+const newsPostServiceError_1 = require("../Errors/newsPostServiceError");
+const validationError_1 = require("../Errors/validationError");
+const auth_1 = require("../middleware/auth");
+const getUser_1 = require("../middleware/getUser");
 const NewsService_1 = require("../services/NewsService");
+const DataSource_1 = require("../utils/DataSource");
+const validateNewPost_1 = require("../validation/validateNewPost");
 const router = (0, express_1.Router)();
 const newsService = new NewsService_1.NewsService();
 router.get("/newsposts", async (req, res) => {

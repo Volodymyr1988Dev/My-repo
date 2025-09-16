@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { fetchAllPosts, deletePost } from "../API/posts";
 import { NewsPost } from "../interface/NewsPost";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const [posts, setPosts] = useState<NewsPost[]>([]);

@@ -5,9 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 const http_1 = __importDefault(require("http"));
-const app_1 = require("./app");
 const dotenv_1 = __importDefault(require("dotenv"));
+const app_1 = require("./app");
 dotenv_1.default.config();
+//import { seedUsers } from "./seed/seedUsers";
 const DataSource_1 = require("./utils/DataSource");
 const port = process.env.PORT || 8000;
 const HOST = process.env.HOST || "localhost";

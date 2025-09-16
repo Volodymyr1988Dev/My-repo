@@ -1,4 +1,4 @@
-import def from "ajv/dist/vocabularies/discriminator";
+//import def from "ajv/dist/vocabularies/discriminator";
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index } from "typeorm";
 
 import { Genre } from "../enum/enum";

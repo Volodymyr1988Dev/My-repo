@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { NewsPost } from "./interface/NewsPost";
+
 import { deletePost } from "./API/posts";
+import { NewsPost } from "./interface/NewsPost";
 
 export default function NewsList() {
     const [posts, setPosts] = useState<NewsPost[]>([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const [hasMore, setHasMore] = useState(true);
-    let page = Number(searchParams.get("page") || 0);
-    let size = Number(searchParams.get("size") || 4);
+    const page = Number(searchParams.get("page") || 0);
+    const size = Number(searchParams.get("size") || 4);
     useEffect(() => {
         fetch(`/api/newsposts?page=${page}&size=${size}`)
             .then(res => res.json())
@@ -34,9 +35,10 @@ export default function NewsList() {
             setPosts(posts.filter(post => post.id !== id));
                 await deletePost(id);
                 alert("Пост видалено");
-            } catch (err) {
-                console.error("Не вдалося видалити пост");
-            }
+            } 
+        catch (err) {
+            console.error("Не вдалося видалити пост", err);
+        }
         }        
     return (
         <div>

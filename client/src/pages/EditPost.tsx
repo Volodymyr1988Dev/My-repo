@@ -1,8 +1,9 @@
+import { Gennre } from "enum/enum";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 import { getPostById, updatePost } from "../API/posts";
 import { NewsPost } from "../interface/NewsPost";
-import { Gennre } from "enum/enum";
 
 export default function EditPost() {
     const { id } = useParams<{ id: string }>();
@@ -23,7 +24,10 @@ export default function EditPost() {
                     setPost(data);
                 }
             } catch (err) {
-                setError("Помилка при завантаженні поста");
+                if (err instanceof Error) {
+                throw new Error("Помилка при завантаженні поста", err);
+                }
+                else setError("Помилка при завантаженні поста");
             } finally {
                 setLoading(false);
             }

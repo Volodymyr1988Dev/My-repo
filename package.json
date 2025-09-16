@@ -6,7 +6,13 @@
     "start": "concurrently \"npm run dev:server --prefix server\" \"npm start --prefix client\"",
     "build": "npm run build --prefix client",
     "dev:client": "npm run start --prefix client",
-    "dev:server": "npm start --prefix server"
+    "dev:server": "npm start --prefix server",
+    "lint:client": "eslint \"client/src/**/*.{ts,tsx,js,jsx}\"",
+    "lint:client:fix": "eslint \"client/src/**/*.{ts,tsx,js,jsx}\" --fix",
+    "lint": "npm run lint:server && npm run lint:client",
+    "lint:fix": "npm run lint:server:fix && npm run lint:client:fix",
+    "lint:server": "eslint \"server/src/**/*.{ts,tsx,js,jsx}\"",
+    "lint:server:fix": "eslint \"server/src/**/*.{ts,tsx,js,jsx}\" --fix"
   },
   "author": "",
   "license": "ISC",

@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
 import { DataSource } from "typeorm";
 
-import { NewsPost } from "./entities/NewsPost";
-import { User } from "./entities/User";
+//import { NewsPost } from "./entities/NewsPost";
+//import { User } from "./entities/User";
 
 
 dotenv.config();

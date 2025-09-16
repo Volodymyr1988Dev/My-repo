@@ -25,8 +25,12 @@ const Register = () => {
       const data = await res.json();
       sessionStorage.setItem('token', data.token);
       navigate('/api/newsposts');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (!(err instanceof Error)) {
+        console.error("Unknown error:");
+      }
+      else {setError(err.message);}
+      
     }
   };
 
