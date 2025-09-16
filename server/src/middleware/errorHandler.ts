@@ -1,7 +1,8 @@
 
 import { NextFunction, Request, Response } from "express";
-import { ValidationError } from "../Errors/validationError";
+
 import { NewsPostServiceError } from "../Errors/newsPostServiceError";
+import { ValidationError } from "../Errors/validationError";
 
 
 export function errorHandler (err: Error, req: Request, res:Response, next: NextFunction){

@@ -15,10 +15,14 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+
+   // "moduleResolution": "node16",
+   "moduleResolution": "node",
+
    // "lib": ["es2020"],
     "useDefineForClassFields": false
    // "strictPropertyInitialization": false
   },
-  "include": ["src"],
+  "include": ["src", "eslint.config.mjs"],
   "exclude": ["node_modules"],
 }

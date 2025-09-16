@@ -1,8 +1,9 @@
 import dotenv from "dotenv";
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "../entities/User";
+
 import { NewsPost } from "../entities/NewsPost";
+import { User } from "../entities/User";
 
 
 dotenv.config();

@@ -1,9 +1,12 @@
-import {User} from '../entities/User';
-import { NewsPost } from '../entities/NewsPost';
-import { AppDataSource } from '../utils/DataSource';
-import bcryprt from 'bcrypt';
 import { faker } from '@faker-js/faker';
+import bcryprt from 'bcrypt';
+
+import { NewsPost } from '../entities/NewsPost';
+import {User} from '../entities/User';
 import { Genre } from '../enum/enum';
+import { AppDataSource } from '../utils/DataSource';
+
+
 
 export async function seedUsers() {
     const existing = await AppDataSource.manager.findOne(User, { where: { email: "seedTest2@gmail.com" } });

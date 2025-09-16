@@ -1,10 +1,14 @@
+import path from "path";
+
 import cors from "cors";
 import express, {Request, Response} from "express";
-import path from "path";
-import routes from "./routes/routes"
-import { requestLogger } from "./middleware/requestLogger";
+
 import { errorHandler } from "./middleware/errorHandler";
+import { requestLogger } from "./middleware/requestLogger";
 import passport from "./passport";
+import routes from "./routes/routes"
+
+
 
 const app = express();
 app.use(cors());

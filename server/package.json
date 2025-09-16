@@ -9,7 +9,8 @@
     "dev:nodemon": "tsc & nodemon dist/index.js",
     "migration:generate": "typeorm migration:generate src/migration/action -d dist/ormconfig.js",
     "migration:run": "typeorm migration:run -d dist/middleware/DataSource.js",
-    "seed": "ts-node src/seed/seedUsers.ts"
+    "seed": "ts-node src/seed/seedUsers.ts",
+    "lint": "eslint \"src/**/*.ts\""
   },
   "keywords": [],
   "author": "",
@@ -35,6 +36,7 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.35.0",
     "@types/bcrypt": "^6.0.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
@@ -44,9 +46,13 @@
     "@types/passport-jwt": "^4.0.1",
     "@types/pg": "^8.15.5",
     "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
     "cross-env": "^10.0.0",
+    "eslint-plugin-import": "^2.32.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.0",
     "winston": "^3.17.0"
   }
 }

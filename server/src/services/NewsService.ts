@@ -1,5 +1,5 @@
-import { AppDataSource } from "../utils/DataSource";
 import { NewsPost } from "../entities/NewsPost";
+import { AppDataSource } from "../utils/DataSource";
 
 const repo = AppDataSource.getRepository(NewsPost);
 

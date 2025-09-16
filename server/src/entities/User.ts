@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+
 import { NewsPost } from "./NewsPost";
 
 

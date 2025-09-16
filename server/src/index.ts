@@ -1,10 +1,13 @@
 import "reflect-metadata";
 import http from "http";
-import {app} from "./app";
+
 import dotenv from 'dotenv';
+
+import {app} from "./app";
 dotenv.config();
+//import { seedUsers } from "./seed/seedUsers";
 import { AppDataSource } from "./utils/DataSource";
-import { seedUsers } from "./seed/seedUsers";
+
 
 
 const port = process.env.PORT || 8000;

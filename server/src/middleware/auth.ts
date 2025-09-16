@@ -1,10 +1,11 @@
-import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
+import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+
 //import { UserTable } from '../UserTable';
-import { ValidationError } from '../Errors/validationError';
-import { AppDataSource } from '../utils/DataSource';
 import { User } from '../entities/User';
+//import { ValidationError } from '../Errors/validationError';
+import { AppDataSource } from '../utils/DataSource';
 
 //const userTable = new UserTable();
 const SECRET = process.env.JWT_SECRET || 'supersecret';

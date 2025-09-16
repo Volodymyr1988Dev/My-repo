@@ -1,14 +1,15 @@
 import {Router, Request, Response, NextFunction} from "express";
-import { validateNewPost } from "../validation/validateNewPost";
-import { ValidationError } from "../Errors/validationError";
-import { NewsPostServiceError } from "../Errors/newsPostServiceError";
-import { registerHandler, loginHandler } from "../middleware/auth";
 import passport from "passport";
-import { getUserHandler } from "../middleware/getUser";
-import { AppDataSource } from "../utils/DataSource";
+
 import {NewsPost} from "../entities/NewsPost";
 import { User } from "../entities/User";
+import { NewsPostServiceError } from "../Errors/newsPostServiceError";
+import { ValidationError } from "../Errors/validationError";
+import { registerHandler, loginHandler } from "../middleware/auth";
+import { getUserHandler } from "../middleware/getUser";
 import { NewsService } from "../services/NewsService";
+import { AppDataSource } from "../utils/DataSource";
+import { validateNewPost } from "../validation/validateNewPost";
 
 
 const router = Router();

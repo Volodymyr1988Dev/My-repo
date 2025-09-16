@@ -1,7 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index } from "typeorm";
-import { User } from "./User";
 import def from "ajv/dist/vocabularies/discriminator";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index } from "typeorm";
+
 import { Genre } from "../enum/enum";
+
+import { User } from "./User";
 
 
 @Entity("news_post")
