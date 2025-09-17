@@ -35,4 +35,4 @@ jobs:
         run: npm run build --prefix server
 
       - name: Lint
-        run: npx eslint "src/**/*.ts"
+        run: npm run lint
