@@ -16,7 +16,7 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use(passport_1.default.initialize());
 app.use("/api", routes_1.default);
-const clientBuildPath = path_1.default.join(__dirname, "../../client/build");
+const clientBuildPath = path_1.default.join(__dirname, "../../client/dist");
 app.use(express_1.default.static(clientBuildPath));
 app.get("*", (_req, res) => {
     res.sendFile(path_1.default.join(clientBuildPath, "index.html"));

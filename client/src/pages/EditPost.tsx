@@ -1,9 +1,11 @@
-import { Gennre } from "enum/enum";
+
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { getPostById, updatePost } from "../API/posts";
+import { Gennre } from "../enum/enum";
 import { NewsPost } from "../interface/NewsPost";
+
 
 export default function EditPost() {
     const { id } = useParams<{ id: string }>();
@@ -65,7 +67,7 @@ export default function EditPost() {
                 value={post.genre}
                 onChange={(e) => setPost({ ...post, genre: e.target.value as Gennre })}
             >
-                {Object.values(Gennre).map((g) => (
+                {Object.values(Gennre).map((g: Gennre) => (
                     <option key={g} value={g}>
                         {g}
                     </option>

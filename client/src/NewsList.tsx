@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 import { deletePost } from "./API/posts";
-import { NewsPost } from "./interface/NewsPost";
+import  type { NewsPost } from "./interface/NewsPost";
 
 export default function NewsList() {
     const [posts, setPosts] = useState<NewsPost[]>([]);
@@ -34,7 +34,7 @@ export default function NewsList() {
         try {
             setPosts(posts.filter(post => post.id !== id));
                 await deletePost(id);
-                alert("Пост видалено");
+                window.alert("Пост видалено");
             } 
         catch (err) {
             console.error("Не вдалося видалити пост", err);

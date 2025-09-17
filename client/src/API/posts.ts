@@ -1,4 +1,4 @@
-import { Gennre } from "enum/enum";
+import { Gennre } from "../enum/enum";
 
 export const API_URL = "/api/newsposts";
 

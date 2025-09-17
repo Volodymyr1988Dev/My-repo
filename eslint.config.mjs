@@ -8,10 +8,14 @@ export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ["src/**/*.{ts,tsx,js,jsx}"],
+    files: ["server/src/**/*.{ts,tsx}", "client/src/**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
+      parserOptions: {
+      project: ["./server/tsconfig.json", "./client/tsconfig.json"],
+      tsconfigRootDir: import.meta.dirname,
+      },
       globals: {
         console: "readonly",
         process: "readonly",

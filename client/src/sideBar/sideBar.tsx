@@ -6,7 +6,7 @@ const SideBar = () => {
     const navigate = useNavigate();
     const handleLogout = () => {
   sessionStorage.removeItem('token');
-   window.dispatchEvent(new Event("storage"));
+   window.dispatchEvent(new window.Event("storage"));
   navigate("/login");
 };
     return (
