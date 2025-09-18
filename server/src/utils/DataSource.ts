@@ -26,6 +26,6 @@ export const AppDataSource = new DataSource({
   synchronize: true,
   logging: false,
   entities: [User, NewsPost],
-  migrations: ["src/migration/*.ts"],
+  migrations: isProd ? ["dist/migration/*.js"] : ["src/migration/*.ts"],
   ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : undefined,
 });

@@ -7,8 +7,9 @@
     "dev:server": "ts-node src/index.ts",
     "build": "tsc",
     "dev:nodemon": "tsc & nodemon dist/index.js",
-    "migration:generate": "typeorm migration:generate src/migration/action -d dist/ormconfig.js",
-    "migration:run": "typeorm migration:run -d dist/middleware/DataSource.js",
+    "migration:generate": "typeorm migration:generate src/migration/action -d dist/utils/DataSource.js",
+    "migration:run": "typeorm migration:run -d dist/utils/DataSource.js",
+   
     "seed": "ts-node src/seed/seedUsers.ts",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix"

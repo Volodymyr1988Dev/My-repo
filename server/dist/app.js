@@ -28,3 +28,6 @@ app.use(errorHandler_1.errorHandler);
 //PGDATABASE=newsdb
 //PGPORT=5432
 //DB_PASS=123456
+//"migration:generate": "typeorm migration:generate src/migration/action -d dist/utils/DataSource.js",
+//   "migration:run": "typeorm migration:run -d dist/utils/DataSource.js",
+//"migration:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d ./src/utils/DataSource.ts",

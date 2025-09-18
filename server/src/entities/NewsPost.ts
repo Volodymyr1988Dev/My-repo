@@ -19,7 +19,7 @@ export class NewsPost {
     @Column()
     text!: string;
 
-    @Column()
+    @Column({ default: Genre.OTHER })
     @Index()
     genre!: Genre
 
