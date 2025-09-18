@@ -8,14 +8,15 @@ import { User } from "../entities/User";
 
 dotenv.config();
 
-
+const databaseUrl = process.env.DATABASE_URL;
 const isProd = process.env.NODE_ENV === "production";
 export const AppDataSource = new DataSource({
   type: "postgres",
-  url: isProd ? process.env.DATABASE_URL : undefined,
-   host: isProd ? undefined : process.env.PGHOST || "localhost",
+  //url: isProd ? process.env.DATABASE_URL : undefined,
+  url: process.env.DATABASE_URL || undefined,
+  host: isProd ? undefined : process.env.PGHOST || "localhost",
   port: isProd ? undefined : Number(process.env.PGPORT) || 5432,
-   username: isProd ? undefined : process.env.PGUSER || "postgres",
+  username: isProd ? undefined : process.env.PGUSER || "postgres",
   password: isProd ? undefined : process.env.PGPASSWORD || "123456",
   database: isProd ? undefined : process.env.PGDATABASE || "newsdb",
   //host: process.env.DB_HOST || "localhost",
