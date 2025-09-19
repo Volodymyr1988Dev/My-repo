@@ -3,10 +3,10 @@ import http from "http";
 
 import dotenv from 'dotenv';
 
-import {app} from "../app";
+import {app} from "./app";
 dotenv.config();
 //import { seedUsers } from "./seed/seedUsers";
-import { AppDataSource } from "../utils/DataSource";
+import { AppDataSource } from "./utils/DataSource";
 
 
 
