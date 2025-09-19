@@ -9,7 +9,6 @@
     "dev:nodemon": "tsc & nodemon dist/index.js",
     "migration:generate": "typeorm migration:generate src/migration/action -d dist/utils/DataSource.js",
     "migration:run": "typeorm migration:run -d dist/utils/DataSource.js",
-   
     "seed": "ts-node src/seed/seedUsers.ts",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix"
@@ -44,7 +43,7 @@
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/minimist": "^1.2.5",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.5.2",
     "@types/passport-jwt": "^4.0.1",
     "@types/pg": "^8.15.5",
     "@types/winston": "^2.4.4",

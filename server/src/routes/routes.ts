@@ -1,4 +1,5 @@
-import {Router, Request, Response, NextFunction} from "express";
+import { Router} from "express";
+import { Request, Response, NextFunction } from "express";
 import passport from "passport";
 
 import {NewsPost} from "../entities/NewsPost";
@@ -15,7 +16,7 @@ import { validateNewPost } from "../validation/validateNewPost";
 const router = Router();
 const newsService = new NewsService();
 
-router.get("/newsposts", async (req, res) => {
+router.get("/newsposts", async (req: Request, res: Response) => {
   try {
     const page = Number(req.query.page) || 0;
     const size = Number(req.query.size) || 10;
@@ -55,7 +56,7 @@ router.post("/newsposts",
 });
   
 
-router.get("/newsposts/:id", async (req, res) => {
+router.get("/newsposts/:id", async (req: Request, res: Response) => {
   try {
     const post = await newsService.getPostById(Number(req.params.id));
     if (!post) return res.status(404).send("Not found");
@@ -68,7 +69,7 @@ router.get("/newsposts/:id", async (req, res) => {
 router.put(
   "/newsposts/:id",
   passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     try {
       const user = req.user as User;
       const updated = await newsService.updatePost(
@@ -90,7 +91,7 @@ router.put(
 router.delete(
   "/newsposts/:id",
   passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
+  async (req: Request, res:Response) => {
     try {
       const user = req.user as User;
       const deletedId = await newsService.deletePost(Number(req.params.id), user.id);

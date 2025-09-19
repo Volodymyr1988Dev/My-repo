@@ -22,12 +22,3 @@ app.get("*", (_req, res) => {
     res.sendFile(path_1.default.join(clientBuildPath, "index.html"));
 });
 app.use(errorHandler_1.errorHandler);
-//PGHOST=localhost
-//PGUSER=postgres
-//PGPASSWORD=123456
-//PGDATABASE=newsdb
-//PGPORT=5432
-//DB_PASS=123456
-//"migration:generate": "typeorm migration:generate src/migration/action -d dist/utils/DataSource.js",
-//   "migration:run": "typeorm migration:run -d dist/utils/DataSource.js",
-//"migration:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d ./src/utils/DataSource.ts",
