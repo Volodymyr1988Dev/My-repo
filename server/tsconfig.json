@@ -5,6 +5,7 @@
     "module": "commonjs",
     "strict": true,
     "types": ["node"],
+    "noImplicitAny": false,
     "esModuleInterop": true,
    // "isolatedModules": true,
     "outDir": "./dist",
