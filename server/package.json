@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "dev:server": "ts-node src/index.ts",
+    "dev:server": "ts-node src/api/index.ts",
     "build": "tsc",
     "dev:nodemon": "tsc & nodemon dist/index.js",
     "migration:generate": "typeorm migration:generate src/migration/action -d dist/utils/DataSource.js",
@@ -54,6 +54,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.0",
+    "vercel": "^48.0.3",
     "winston": "^3.17.0"
   }
 }

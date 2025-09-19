@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a3d92e-8908-421d-af18-a544adb63448" name="Changes" comment="hw5">
+      <change afterPath="$PROJECT_DIR$/server/src/api/indexNotVercel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/vercel.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +64,7 @@
     "npm.dev:client.executor": "Run",
     "npm.dev:nodemon (1).executor": "Run",
     "npm.dev:nodemon.executor": "Run",
+    "npm.dev:server (1).executor": "Run",
     "npm.dev:server.executor": "Run",
     "npm.lint.executor": "Run",
     "npm.start (1).executor": "Run",
@@ -71,12 +79,13 @@
       <recent name="C:\Users\Volodymyr\Desktop\Home\client\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Volodymyr\Desktop\Home\server\src\api" />
       <recent name="C:\Users\Volodymyr\Desktop\Home\client\src\pages" />
       <recent name="C:\Users\Volodymyr\Desktop\Home\server\src" />
       <recent name="C:\Users\Volodymyr\Desktop\Home\client\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -97,6 +106,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="dev:server (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev:server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev:server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
@@ -107,18 +126,8 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
       <scripts>
         <script value="start" />
@@ -129,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.lint" />
-        <item itemvalue="npm.build (1)" />
-        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.dev:server" />
-        <item itemvalue="npm.start (2)" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.dev:server (1)" />
+        <item itemvalue="npm.build (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +172,7 @@
       <workItem from="1754933567698" duration="85000" />
       <workItem from="1755026872684" duration="352000" />
       <workItem from="1755631021266" duration="2297000" />
-      <workItem from="1758301151559" duration="626000" />
+      <workItem from="1758301151559" duration="3052000" />
     </task>
     <task id="LOCAL-00001" summary="hw5">
       <option name="closed" value="true" />

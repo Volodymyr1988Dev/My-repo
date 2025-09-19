@@ -16,15 +16,15 @@ app.use(passport.initialize());
 
 app.use("/api", routes);
 
-const clientBuildPath = path.join(__dirname, "../../client/dist");
+//const clientBuildPath = path.join(__dirname, "../../client/dist");
 
-app.use(express.static(clientBuildPath));
+//app.use(express.static(clientBuildPath));
 
 
 
-app.get("*", (_req: Request, res: Response) => {
-  res.sendFile(path.join(clientBuildPath, "index.html"));
-});
+//app.get("*", (_req: Request, res: Response) => {
+//  res.sendFile(path.join(clientBuildPath, "index.html"));
+//});
 app.use(errorHandler);
 
 export {app}
