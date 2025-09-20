@@ -11,8 +11,7 @@ import { AppDataSource } from "./utils/DataSource";
 
 
 const port:number = Number(process.env.PORT) || 8000;
-const HOST = process.env.HOST || "localhost";
-console.log("HOST", HOST, port);
+
 
 AppDataSource.initialize()
     .then(async() => {
