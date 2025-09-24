@@ -10,7 +10,7 @@ import { AppDataSource } from "./utils/DataSource";
 
 
 
-const port:number = Number(process.env.PORT) || 8000;
+const port:number = Number(process.env.PORT) || 10000;
 
 
 AppDataSource.initialize()
@@ -19,7 +19,7 @@ AppDataSource.initialize()
         //await seedUsers();
         const server = http.createServer(app);
         //server.listen(port, ()=> {console.log(`🚀 Server running at http://${HOST}:${port}`)});
-        server.listen('0.0.0.0', port, () => {
+        server.listen(port, () => {
             console.log(`🚀 Server running on port ${port}`);
         });
     })
