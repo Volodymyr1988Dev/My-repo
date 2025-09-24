@@ -19,7 +19,7 @@ AppDataSource.initialize()
         //await seedUsers();
         const server = http.createServer(app);
         //server.listen(port, ()=> {console.log(`🚀 Server running at http://${HOST}:${port}`)});
-        server.listen(port, () => {
+        server.listen(port, '0.0.0.0', () => {
             console.log(`🚀 Server running on port ${port}`);
         });
     })

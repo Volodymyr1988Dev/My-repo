@@ -1,6 +1,7 @@
 import { Gennre } from "../enum/enum";
 
-export const API_URL = "/api/newsposts";
+
+export const API_URL = `${import.meta.env.VITE_API_URL}/newsposts`;
 
 export const fetchAllPosts = async () => {
     const res = await fetch(API_URL);

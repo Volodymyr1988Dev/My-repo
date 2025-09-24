@@ -20,7 +20,9 @@ app.use("/api", routes);
 
 //app.use(express.static(clientBuildPath));
 
-
+app.get("/", (_req, res) => {
+  res.send("✅ API is running on Render");
+});
 
 //app.get("*", (_req: Request, res: Response) => {
 //  res.sendFile(path.join(clientBuildPath, "index.html"));
