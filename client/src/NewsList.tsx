@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 
 import { deletePost } from "./API/posts";
 import  type { NewsPost } from "./interface/NewsPost";
-
+const VITE_API_URL = import.meta.env.VITE_API_URL as string;
 export default function NewsList() {
     const [posts, setPosts] = useState<NewsPost[]>([]);
     const [searchParams, setSearchParams] = useSearchParams();
@@ -11,7 +11,7 @@ export default function NewsList() {
     const page = Number(searchParams.get("page") || 0);
     const size = Number(searchParams.get("size") || 4);
     useEffect(() => {
-        fetch(`/api/newsposts?page=${page}&size=${size}`)
+        fetch(`${VITE_API_URL}/newsposts?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 console.log("Fetched data", data);
