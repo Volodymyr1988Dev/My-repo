@@ -11,7 +11,10 @@ import routes from "./routes/routes"
 
 const app = express();
 app.use(cors({
-  origin: ["https://my-repo-front.vercel.app"],
+  origin: ["https://my-repo-front.vercel.app",
+    "http://localhost:5173",              
+    "https://my-repo-client.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
