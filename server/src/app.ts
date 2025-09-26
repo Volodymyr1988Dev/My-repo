@@ -1,22 +1,25 @@
 import path from "path";
 
 import cors from "cors";
-import dotenv from "dotenv";
 import express, {Request, Response} from "express";
 
 import { errorHandler } from "./middleware/errorHandler";
 import passport from "./passport";
 import routes from "./routes/routes"
 
-dotenv.config();
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://my-repo-front.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(passport.initialize());
 
-app.use(`${process.env.VITE_API_URL}`, routes);
+app.use("/api", routes);
 
 //const clientBuildPath = path.join(__dirname, "../../client/dist");
 

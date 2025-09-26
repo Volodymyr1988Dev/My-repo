@@ -8,10 +8,12 @@ const Register = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+ const VITE_API_URL = import.meta.env.VITE_API_URL as string;
+ 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/register', {
+      const res = await fetch(`${VITE_API_URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, confirmPassword }),
