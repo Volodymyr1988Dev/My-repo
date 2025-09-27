@@ -27,17 +27,11 @@ app.use(passport.initialize());
 
 app.use("/api", routes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-//const clientBuildPath = path.join(__dirname, "../../client/dist");
-
-//app.use(express.static(clientBuildPath));
 
 app.get("/", (_req, res) => {
   res.send("✅ API is running on Render");
 });
 
-//app.get("*", (_req: Request, res: Response) => {
-//  res.sendFile(path.join(clientBuildPath, "index.html"));
-//});
 app.use(errorHandler);
 
 export {app}

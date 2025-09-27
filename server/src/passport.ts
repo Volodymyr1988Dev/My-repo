@@ -3,7 +3,6 @@ import { Strategy as JwtStrategy, ExtractJwt, StrategyOptions } from 'passport-j
 
 import { User } from './entities/User';
 import { AppDataSource } from './utils/DataSource';
-//import { UserTable } from './UserTable';
 
 const opts : StrategyOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

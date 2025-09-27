@@ -12,7 +12,6 @@ const databaseUrl = process.env.DATABASE_URL;
 const isProd = process.env.NODE_ENV === "production";
 export const AppDataSource = new DataSource({
   type: "postgres",
-  //url: isProd ? process.env.DATABASE_URL : undefined,
   url: databaseUrl || undefined,
   host: isProd ? undefined : process.env.PGHOST || "localhost",
   port: isProd ? undefined : Number(process.env.PGPORT) || 5432,

@@ -66,63 +66,91 @@ router.get("/newsposts", async (req: Request, res: Response) => {
  *     tags:
  *       - NewsPosts
  *     summary: Створити новину
+ *     description: Створює новий пост. Потрібна авторизація через JWT.
  *     security:
  *       - jwt: []
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - header
- *               - text
- *             properties:
- *               header:
- *                 type: string
- *                 example: "Breaking News!"
- *               text:
- *                 type: string
- *                 example: "This is the content of the news post."
- *               genre:
- *                 type: string
- *                 example: "SPORTS"
- *               isPrivate:
- *                 type: boolean
- *                 example: false
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: body
+ *         description: Дані новини
+ *         required: true
+ *         schema:
+ *           type: object
+ *           required:
+ *             - header
+ *             - text
+ *           properties:
+ *             header:
+ *               type: string
+ *               example: "Breaking News!"
+ *             text:
+ *               type: string
+ *               example: "This is the content of the news post."
+ *             genre:
+ *               type: string
+ *               example: "SPORTS"
+ *             isPrivate:
+ *               type: boolean
+ *               example: false
  *     responses:
  *       201:
  *         description: Створена новина
- *         content:
- *           application/json:
- *             example:
- *               id: 12
- *               header: "Breaking News!"
- *               text: "This is the content of the news post."
- *               genre: "SPORTS"
- *               isPrivate: false
- *               createDate: "2025-09-19T12:34:56Z"
- *               author:
- *                 id: 1
- *                 email: "user@example.com"
+ *         schema:
+ *           type: object
+ *           properties:
+ *             id:
+ *               type: integer
+ *               example: 12
+ *             header:
+ *               type: string
+ *               example: "Breaking News!"
+ *             text:
+ *               type: string
+ *               example: "This is the content of the news post."
+ *             genre:
+ *               type: string
+ *               example: "SPORTS"
+ *             isPrivate:
+ *               type: boolean
+ *               example: false
+ *             createDate:
+ *               type: string
+ *               example: "2025-09-19T12:34:56Z"
+ *             author:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   example: 1
+ *                 email:
+ *                   type: string
+ *                   example: "user@example.com"
  *       400:
  *         description: Помилка валідації
- *         content:
- *           application/json:
- *             example:
- *               error: "Validation failed: header is required"
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
+ *               example: "Validation failed: header is required"
  *       401:
  *         description: Неавторизований доступ
- *         content:
- *           application/json:
- *             example:
- *               error: "Unauthorized"
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
+ *               example: "Unauthorized"
  *       500:
  *         description: Внутрішня помилка сервера
- *         content:
- *           application/json:
- *             example:
- *               error: "Server error"
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
+ *               example: "Server error"
  */
 router.post("/newsposts",
     passport.authenticate('jwt', { session: false }),
@@ -366,6 +394,7 @@ router.post("/login", loginHandler);
  *           $ref: '#/definitions/User'
  */
 router.get("/user", passport.authenticate('jwt', { session: false }), getUserHandler);
+
 router.get('/error', (_req: Request, _res: Response, next: NextFunction) => {
   return next(new NewsPostServiceError('Simulated service error'));
 });
