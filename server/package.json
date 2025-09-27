@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev:server": "ts-node src/index.ts",
+    "swagger": "ts-node src/swagger/swagger.ts",
+    "start": "npm run swagger && node dist/index.js",
+    "dev:server": "npm run swagger && ts-node src/index.ts",
     "build": "tsc",
     "dev:nodemon": "tsc & nodemon dist/index.js",
     "migration:generate": "typeorm migration:generate src/migration/action -d dist/utils/DataSource.js",
@@ -33,6 +34,8 @@
     "passport-jwt": "^4.0.1",
     "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
     "typeorm": "^0.3.26",
     "winston-daily-rotate-file": "^5.0.0"
   },

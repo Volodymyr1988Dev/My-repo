@@ -15,7 +15,39 @@ import { validateNewPost } from "../validation/validateNewPost";
 
 const router = Router();
 const newsService = new NewsService();
-
+/**
+ * @swagger
+ * /newsposts:
+ *   get:
+ *     tags:
+ *       - NewsPosts
+ *     summary: Отримати список новин
+ *     parameters:
+ *       - name: page
+ *         in: query
+ *         required: false
+ *         type: integer
+ *       - name: size
+ *         in: query
+ *         required: false
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: Список новин
+ *         schema:
+ *           type: object
+ *           properties:
+ *             total:
+ *               type: integer
+ *             page:
+ *               type: integer
+ *             size:
+ *               type: integer
+ *             posts:
+ *               type: array
+ *               items:
+ *                 $ref: '#/definitions/NewsPost'
+ */
 router.get("/newsposts", async (req: Request, res: Response) => {
   try {
     const page = Number(req.query.page) || 0;
@@ -27,6 +59,28 @@ router.get("/newsposts", async (req: Request, res: Response) => {
     res.status(500).send("Server error");
   }
 });
+/**
+ * @swagger
+ * /newsposts:
+ *   post:
+ *     tags:
+ *       - NewsPosts
+ *     summary: Створити новину
+ *     security:
+ *       - jwt: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/definitions/NewsPost'
+ *     responses:
+ *       201:
+ *         description: Створена новина
+ *         schema:
+ *           $ref: '#/definitions/NewsPost'
+ *      
+ */
 router.post("/newsposts",
     passport.authenticate('jwt', { session: false }),
     async (req: Request, res: Response, next: NextFunction) => {
