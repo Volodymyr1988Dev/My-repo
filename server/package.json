@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "swagger": "ts-node src/swagger/swagger.ts",
-    "start": "npm run swagger && node dist/index.js",
+    "swagger": "node dist/swagger/swagger.js",
+    "start": "node dist/index.js",
     "dev:server": "npm run swagger && ts-node src/index.ts",
-    "build": "tsc",
+    "build": "tsc && npm run swagger",
     "dev:nodemon": "tsc & nodemon dist/index.js",
     "migration:generate": "typeorm migration:generate src/migration/action -d dist/utils/DataSource.js",
     "migration:run": "typeorm migration:run -d dist/utils/DataSource.js",
