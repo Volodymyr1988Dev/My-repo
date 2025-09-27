@@ -67,42 +67,67 @@ router.get("/newsposts", async (req: Request, res: Response) => {
  *     tags:
  *       - NewsPosts
  *     summary: Створити новину
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - header
- *               - text
- *             properties:
- *               header:
- *                 type: string
- *                 example: "Breaking News!"
- *               text:
- *                 type: string
- *                 example: "This is the content of the news post."
- *               genre:
- *                 type: Genre
- *                 example: "OTHER"
- *               isPrivate:
- *                type: boolean
- *                 example: "false"
+ *     description: Доступно тільки авторизованим користувачам
+ *     security:
+ *       - jwt: []
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: body
+ *         description: Об'єкт новини
+ *         required: true
+ *         schema:
+ *           type: object
+ *           required:
+ *             - header
+ *             - text
+ *           properties:
+ *             header:
+ *               type: string
+ *               example: "Breaking News!"
+ *             text:
+ *               type: string
+ *               example: "This is the content of the news post."
+ *             genre:
+ *               type: string
+ *               example: "SPORTS"
+ *             isPrivate:
+ *               type: boolean
+ *               example: false
  *     responses:
  *       201:
  *         description: Створена новина
- *         content:
- *           application/json:
- *             example:
- *               message: "Post created"
- *               post:
- *                 id: 1
- *                 header: "Breaking News!"
- *                 text: "This is the content of the news post."
- *                 genre: "OTHER"
- *                 isPrivate: false
- *                 createDate: "2023-10-01T12:34:56Z"
+ *         schema:
+ *           type: object
+ *           properties:
+ *             id:
+ *               type: integer
+ *               example: 1
+ *             header:
+ *               type: string
+ *               example: "Breaking News!"
+ *             text:
+ *               type: string
+ *               example: "This is the content of the news post."
+ *             genre:
+ *               type: string
+ *               example: "SPORTS"
+ *             isPrivate:
+ *               type: boolean
+ *               example: false
+ *             createDate:
+ *               type: string
+ *               example: "2025-09-19T12:34:56Z"
+ *             author:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   example: 7
+ *                 email:
+ *                   type: string
+ *                   example: "user@example.com"
  *       401:
  *         description: Неавторизований доступ
  *         schema:
@@ -110,13 +135,15 @@ router.get("/newsposts", async (req: Request, res: Response) => {
  *           properties:
  *             error:
  *               type: string
- *               example: "Unauthorized" 
+ *               example: "Unauthorized"
  *       500:
  *         description: Внутрішня помилка сервера
- *         content:
- *           application/json:
- *             example:
- *               error: "Server error"
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
+ *               example: "Server error"
  */
 router.post("/newsposts",
     passport.authenticate('jwt', { session: false }),
