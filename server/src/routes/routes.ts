@@ -70,80 +70,83 @@ router.get("/newsposts", async (req: Request, res: Response) => {
  *     description: Доступно тільки авторизованим користувачам
  *     security:
  *       - jwt: []
- *     consumes:
- *       - application/json
- *     parameters:
- *       - in: body
- *         name: body
- *         description: Об'єкт новини
- *         required: true
- *         schema:
- *           type: object
- *           required:
- *             - header
- *             - text
- *           properties:
- *             header:
- *               type: string
- *               example: "Breaking News!"
- *             text:
- *               type: string
- *               example: "This is the content of the news post."
- *             genre:
- *               type: string
- *               example: "SPORTS"
- *             isPrivate:
- *               type: boolean
- *               example: false
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - header
+ *               - text
+ *             properties:
+ *               header:
+ *                 type: string
+ *                 example: "Breaking News!"
+ *               text:
+ *                 type: string
+ *                 example: "This is the content of the news post."
+ *               genre:
+ *                 type: string
+ *                 example: "SPORTS"
+ *               isPrivate:
+ *                 type: boolean
+ *                 example: false
  *     responses:
  *       201:
  *         description: Створена новина
- *         schema:
- *           type: object
- *           properties:
- *             id:
- *               type: integer
- *               example: 1
- *             header:
- *               type: string
- *               example: "Breaking News!"
- *             text:
- *               type: string
- *               example: "This is the content of the news post."
- *             genre:
- *               type: string
- *               example: "SPORTS"
- *             isPrivate:
- *               type: boolean
- *               example: false
- *             createDate:
- *               type: string
- *               example: "2025-09-19T12:34:56Z"
- *             author:
+ *         content:
+ *           application/json:
+ *             schema:
  *               type: object
  *               properties:
  *                 id:
  *                   type: integer
- *                   example: 7
- *                 email:
+ *                   example: 1
+ *                 header:
  *                   type: string
- *                   example: "user@example.com"
+ *                   example: "Breaking News!"
+ *                 text:
+ *                   type: string
+ *                   example: "This is the content of the news post."
+ *                 genre:
+ *                   type: string
+ *                   example: "SPORTS"
+ *                 isPrivate:
+ *                   type: boolean
+ *                   example: false
+ *                 createDate:
+ *                   type: string
+ *                   example: "2025-09-19T12:34:56Z"
+ *                 author:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       example: 7
+ *                     email:
+ *                       type: string
+ *                       example: "user@example.com"
  *       401:
  *         description: Неавторизований доступ
- *         schema:
- *           type: object
- *           properties:
- *             error:
- *               type: string
- *               example: "Unauthorized"
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Unauthorized"
  *       500:
  *         description: Внутрішня помилка сервера
- *         schema:
- *           type: object
- *           properties:
- *             error:
- *               type: string
- *               example: "Server error"
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Server error"
  */
 router.post("/newsposts",
     passport.authenticate('jwt', { session: false }),
