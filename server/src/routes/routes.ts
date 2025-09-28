@@ -98,35 +98,7 @@ router.get("/newsposts", async (req: Request, res: Response) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                   example: 1
- *                 header:
- *                   type: string
- *                   example: "Breaking News!"
- *                 text:
- *                   type: string
- *                   example: "This is the content of the news post."
- *                 genre:
- *                   type: string
- *                   example: "SPORTS"
- *                 isPrivate:
- *                   type: boolean
- *                   example: false
- *                 createDate:
- *                   type: string
- *                   example: "2025-09-19T12:34:56Z"
- *                 author:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: integer
- *                       example: 7
- *                     email:
- *                       type: string
- *                       example: "user@example.com"
+ *               $ref: '#/components/schemas/NewsPost'
  *       401:
  *         description: Неавторизований доступ
  *         content:
@@ -383,9 +355,21 @@ router.post("/login", loginHandler);
  *     summary: Отримати дані користувача
  *     security:
  *       - jwt: []
+*     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: integer
  *     responses:
  *       200:
  *         description: Дані користувача
+ *         content:
+ *           application/json:
+ *             example:
+ *               token: "Bearer eyJhbGciOiJIUzI1NiIsInR..."
+ *               user:
+ *                 id: 1
+ *                 email: "test@example.com"
  *         schema:
  *           $ref: '#/definitions/User'
  */
