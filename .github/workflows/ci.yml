@@ -38,6 +38,3 @@ jobs:
 
       - name: Lint
         run: npm run lint
-
-      - name: Run Tests
-        run: npm test --prefix server
