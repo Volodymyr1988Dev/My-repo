@@ -1,7 +1,7 @@
 import { NewsPost } from "../entities/NewsPost";
 import { AppDataSource } from "../utils/DataSource";
 
-const repo = AppDataSource.getRepository(NewsPost);
+export const repo = AppDataSource.getRepository(NewsPost);
 
 export class NewsService {
    async createPost(data: Partial<NewsPost>, userId: number) {

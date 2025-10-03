@@ -7,7 +7,6 @@ import { User } from '../entities/User';
 //import { ValidationError } from '../Errors/validationError';
 import { AppDataSource } from '../utils/DataSource';
 
-//const userTable = new UserTable();
 const SECRET = process.env.JWT_SECRET || 'supersecret';
 
 export async function registerHandler(req: Request, res: Response, next: NextFunction) {
