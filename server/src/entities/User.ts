@@ -7,8 +7,7 @@ import { NewsPost } from "./NewsPost";
 @Entity('User')
 export class User {
     @PrimaryGeneratedColumn()
-   // primary: true;
-   // generated: true;
+
     id!: number;
 
     @Column({ unique: true, length: 20 })
