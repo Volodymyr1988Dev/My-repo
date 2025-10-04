@@ -10,7 +10,6 @@ import routes from "./routes/routes"
 import swaggerDocument from "./swagger/swagger-output.json";
 
 
-
 const app = express();
 
 app.use(cors({
