@@ -1,7 +1,10 @@
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -9,6 +12,7 @@ export default [
     files: ['src/**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
       parserOptions: {
+
         ecmaVersion: 2022,
         sourceType: 'module',
       },
@@ -18,6 +22,7 @@ export default [
         __dirname: 'readonly',
         module: 'readonly',
         require: 'readonly',
+        URL: 'readonly',
       },
     },
     plugins: {
@@ -37,6 +42,18 @@ export default [
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
+    },
+  },
+  {
+    files: ['src/tests/**/*.{ts,tsx}'],
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.test.json',
+        tsconfigRootDir: path.resolve(__dirname),
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   {

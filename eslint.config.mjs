@@ -3,7 +3,11 @@ import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import importPlugin from "eslint-plugin-import";
+import path from "path";
+import { fileURLToPath } from "url";
 
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -14,7 +18,7 @@ export default [
       sourceType: "module",
       parserOptions: {
       project: ["./server/tsconfig.json", "./client/tsconfig.json"],
-      tsconfigRootDir: import.meta.dirname,
+      tsconfigRootDir: __dirname,
       },
       globals: {
         console: "readonly",
@@ -51,6 +55,18 @@ export default [
       react: {
         version: "detect",
       },
+    },
+  },
+  {
+    files: ["server/src/tests/**/*.{ts,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        project: "./server/tsconfig.test.json",
+        tsconfigRootDir: __dirname,
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
   {
