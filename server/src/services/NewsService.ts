@@ -4,7 +4,6 @@ import { NewsPost } from "../entities/NewsPost";
 import { User } from "../entities/User";
 import { AppDataSource } from "../utils/DataSource";
 
-//export const repo = AppDataSource.getRepository(NewsPost);
 
 export class NewsService {
   private repo: Repository<NewsPost>;
